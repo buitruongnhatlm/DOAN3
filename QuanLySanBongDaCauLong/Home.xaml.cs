@@ -24,5 +24,56 @@ namespace QuanLySanBongDaCauLong
             InitializeComponent();
         }
 
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            int _indexButtonSelected = int.Parse(((Button)e.Source).Uid);
+
+            ChangeCursor(_indexButtonSelected);
+
+            switch (_indexButtonSelected)
+            {
+                case 0:
+                    FrameMain.Content = new SoccerPage();
+                    break;
+
+                case 1:
+                    FrameMain.Content = new BadmintonPage();
+                    break;
+            }
+        }
+
+        private void ChangeCursor(int index)
+        {
+            switch (index)
+            {
+                case 0:
+                    Cursor.Margin = new Thickness(-525,5,-40,35);
+                    break;
+                case 1:
+                    Cursor.Margin = new Thickness(-375, 5, -10, 35);
+                    break;
+                case 2:
+                    Cursor.Margin = new Thickness(-225, 5, -30, 35);
+                    break;
+                case 3:
+                    Cursor.Margin = new Thickness(-75, 5, -50, 35);
+                    break;
+                case 4:
+                    Cursor.Margin = new Thickness(75, 5, -30, 35);
+                    break;
+                case 5:
+                    Cursor.Margin = new Thickness(225, 5, -40, 35);
+                    break;
+                case 6:
+                    Cursor.Margin = new Thickness(375, 5, -20, 35);
+                    break;
+                case 7:
+                    Cursor.Margin = new Thickness(525, 5, -30, 35);
+                    break;
+
+            }
+        }
+
+
     }
 }

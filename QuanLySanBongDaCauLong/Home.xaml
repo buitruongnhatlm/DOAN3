@@ -52,279 +52,49 @@
             <!--#endregion-->
 
             <Grid Grid.Row="1">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="200"/>
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="350"/>
-                </Grid.ColumnDefinitions>
-
-                <!--#region khung trái -->
-                <StackPanel Orientation="Vertical" >
-
-                    <!--#region button bóng đá/cầu lông -->
-                    <StackPanel Height="30" >
-                        <Button Background="#2196f3" BorderBrush="#2196f3" Margin="10 5 10 0" Padding="20,0,0,10" Content="Sân Bóng Đá" />
-                        <Ellipse Height="25" Width="25" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="15,-39,0,0">
-                            <Ellipse.Fill>
-                                <ImageBrush ImageSource="Images\soccer.png" Stretch="UniformToFill"/>
-                            </Ellipse.Fill>
-                        </Ellipse>
-                    </StackPanel>
-                    <!--#endregion-->
-
-                    <!--#region ăn uống -->
-                    <Grid Margin="0 5 0 0" Height="250" Width="200">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="21*"/>
-                            <ColumnDefinition Width="4*"/>
-                        </Grid.ColumnDefinitions>
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="*" />
-                            <RowDefinition Height="230" />
-                        </Grid.RowDefinitions>
-
-                        <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" Text="THỨC ĂN - ĐỒ UỐNG" Style="{StaticResource TextBlockStyle}" Margin="47,2,14,2"/>
-
-                        <DataGrid Grid.Row="1" Margin="10,0,10,0.4" AutoGenerateColumns="False" Background="#2196f3" Grid.ColumnSpan="2">
-                            <DataGrid.Columns>
-                                <DataGridTextColumn Header="Số" Width="50" />
-                                <DataGridTextColumn Header="Mặt Hàng" Width="130" />
-                            </DataGrid.Columns>
-                        </DataGrid>
-
-                    </Grid>
-                    <!--#endregion-->
-
-                    <!--#region dụng cụ y tế -->
-                    <Grid Margin="0 10 0 0" Height="150" Width="200">
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="*" />
-                            <RowDefinition Height="130" />
-                        </Grid.RowDefinitions>
-
-                        <TextBlock Margin="0 0 0 5" VerticalAlignment="Center" HorizontalAlignment="Center" Text="DỤNG CỤ Y TẾ" Style="{StaticResource TextBlockStyle}"/>
-
-                        <DataGrid Grid.Row="1" Margin="10 0 10 10" AutoGenerateColumns="False" Background="#2196f3">
-                            <DataGrid.Columns>
-                                <DataGridTextColumn Header="Số" Width="50" />
-                                <DataGridTextColumn Header="Mặt Hàng" Width="130" />
-                            </DataGrid.Columns>
-                        </DataGrid>
-
-                    </Grid>
-                    <!--#endregion-->
-
-                </StackPanel>
-                <!--#endregion-->
-
-                <!--#region khung giữa -->
-                <Grid Grid.Column="1" Grid.Row="1" >
-
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="110" />
-                        <RowDefinition Height="*" />
-                        <RowDefinition Height="50" />
-                    </Grid.RowDefinitions>
-
-                    <!--#region khung controls-->
-                    <Grid Margin="0 5 0 0" Grid.Row="0">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="200" />
-                            <ColumnDefinition Width="250" />
-                        </Grid.ColumnDefinitions>
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="25"  />
-                            <RowDefinition Height="25"  />
-                            <RowDefinition Height="25"  />
-                            <RowDefinition Height="25"  />
-                        </Grid.RowDefinitions>
-
-                        <Label Grid.Column="0" Margin="90 0 0 0" Grid.Row="0" HorizontalAlignment="Center" Style="{StaticResource LableStyle}" Content="Tên khách hàng" VerticalAlignment="Center" />
-                        <Label Margin="0 0 0 0" Grid.Column="0" Grid.Row="1" HorizontalAlignment="Left" Style="{StaticResource LableStyle}" Content="Giờ vào" VerticalAlignment="Center" />
-                        <Label Grid.Column="1" Grid.Row="1" Margin="45 0 0 0" HorizontalAlignment="Left" Style="{StaticResource LableStyle}" Content="Giờ ra" VerticalAlignment="Top" />
-
-                        <ComboBox Margin="0 0 0 10" HorizontalAlignment="Left" Grid.Column="1" Grid.Row="0" Width="130" />
-                        <DatePicker Margin="75 0 0 10" HorizontalAlignment="Left" Grid.Column="0" Grid.Row="1" Width="100" />
-                        <DatePicker Margin="90 0 0 10" HorizontalAlignment="Left" Grid.Column="1" Grid.Row="1" Width="100" />
-
-                        <Label  Margin="0 0 0 0" Grid.Column="0" Grid.Row="3" HorizontalAlignment="Left" Style="{StaticResource LableStyle}" Content="Mặt hàng" VerticalAlignment="Top" />
-                        <TextBox Margin="75 0 0 10" HorizontalAlignment="Left" Grid.Column="0" Grid.Row="2" Width="100" />
-
-                        <Label  Margin="0 0 0 0" Grid.Column="0" Grid.Row="2" HorizontalAlignment="Left" Style="{StaticResource LableStyle}" Content="Số lượng" VerticalAlignment="Top" />
-                        <ComboBox Margin="75 0 0 10" HorizontalAlignment="Left" Grid.Column="0" Grid.Row="3" Width="100" />
-
-                        <Label Margin="10 0 0 0" Grid.Column="1" Grid.Row="2" HorizontalAlignment="Left" Style="{StaticResource LableStyle}" Content="Giá" VerticalAlignment="Top" />
-                        <TextBox Margin="40 0 0 15" HorizontalAlignment="Left" Grid.Column="1" Grid.Row="2" Width="80" />
-
-                        <Label Margin="130 0 0 0" Grid.Column="1" Grid.Row="2" HorizontalAlignment="Left" Style="{StaticResource LableStyle}" Content="Giảm" VerticalAlignment="Top" />
-                        <TextBox Margin="0 0 0 15" HorizontalAlignment="Right" Grid.Column="1" Grid.Row="2" Width="80" />
-                        <Button Margin="-90 0 0 5" Width="50" Height="25" Grid.Column="1" Grid.Row="4" Style="{StaticResource MaterialDesignRaisedButton}" materialDesign:ButtonProgressAssist.Value="-1" materialDesign:ButtonProgressAssist.IsIndicatorVisible="True" materialDesign:ButtonProgressAssist.IsIndeterminate="True" ToolTip="Thêm" Content="{materialDesign:PackIcon Kind=Add}" Background="#2196f3" BorderBrush="#2196f3" />
-                        <Button Margin="170 0 0 5" Width="50" Height="25" Grid.Column="1" Grid.Row="4" Style="{StaticResource MaterialDesignRaisedButton}" materialDesign:ButtonProgressAssist.Value="-1" materialDesign:ButtonProgressAssist.IsIndicatorVisible="True" materialDesign:ButtonProgressAssist.IsIndeterminate="True" ToolTip="Thêm" Content="{materialDesign:PackIcon Kind=CloseOutline}" Background="#2196f3" BorderBrush="#2196f3" />
-                    </Grid>
-                    <!--#endregion-->
-
-                    <Grid Grid.Row="1">
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="220" />
-                            <RowDefinition Height="80" />
-                        </Grid.RowDefinitions>
-
-                        <!--#region khung dữ liệu trung tâm-->
-                        <DataGrid Background="#2196f3" AutoGenerateColumns="False" CanUserAddRows="False" CanUserDeleteRows="False" >
-                            <DataGrid.Columns>
-                                <DataGridTextColumn Header="Số" Width="50" />
-                                <DataGridTextColumn Header="Mặt Hàng" Width="110" />
-                                <DataGridTextColumn Header="Số Lượng" Width="90" />
-                                <DataGridTextColumn Header="Giá" Width="60" />
-                                <DataGridTextColumn Header="Giảm" Width="70" />
-                                <DataGridTextColumn Header="Tiền" Width="70" />
-                            </DataGrid.Columns>
-                        </DataGrid>
-                        <!--#endregion-->
-
-                        <!--#region  khung tiền -->
-                        <Grid Grid.Row="1">
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="150" />
-                                <ColumnDefinition Width="150" />
-                                <ColumnDefinition Width="150" />
-                            </Grid.ColumnDefinitions>
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height="30" />
-                                <RowDefinition Height="30" />
-                            </Grid.RowDefinitions>
-
-                            <Label  Margin="0 0 0 0" Grid.Column="0" Grid.Row="0" HorizontalAlignment="Left" Style="{StaticResource LableStyle}" Content="Tổng Cộng" VerticalAlignment="Center" />
-                            <TextBox Margin="80 0 0 15" HorizontalAlignment="Left" Grid.Column="0" Grid.Row="0" Width="70" />
-
-                            <Label  Margin="0 0 0 0" Grid.Column="0" Grid.Row="1" HorizontalAlignment="Left" Style="{StaticResource LableStyle}" Content="Thanh Toán" VerticalAlignment="Center" />
-                            <TextBox Margin="80 0 0 15" HorizontalAlignment="Left" Grid.Column="0" Grid.Row="1" Width="70" />
-
-                            <Label  Margin="10 0 0 0" Grid.Column="1" Grid.Row="0" HorizontalAlignment="Left" Style="{StaticResource LableStyle}" Content="Thu Khác" VerticalAlignment="Center" />
-                            <TextBox Margin="80 0 0 15" HorizontalAlignment="Left" Grid.Column="1" Grid.Row="0" Width="70" />
-
-                            <Label  Margin="10 0 0 0" Grid.Column="1" Grid.Row="1" HorizontalAlignment="Left" Style="{StaticResource LableStyle}" Content="Tổng Thu" VerticalAlignment="Center" />
-                            <TextBox Margin="80 0 0 15" HorizontalAlignment="Left" Grid.Column="1" Grid.Row="1" Width="70" />
-
-                            <Label  Margin="10 0 0 0" Grid.Column="2" Grid.Row="0" HorizontalAlignment="Left" Style="{StaticResource LableStyle}" Content="Giảm Giá" VerticalAlignment="Center" />
-                            <TextBox Margin="80 0 0 15" HorizontalAlignment="Left" Grid.Column="2" Grid.Row="0" Width="70" />
-
-                            <Label  Margin="10 0 0 0" Grid.Column="2" Grid.Row="1" HorizontalAlignment="Left" Style="{StaticResource LableStyle}" Content="Hoàn Lại" VerticalAlignment="Center" />
-                            <TextBox Margin="80 0 0 15" HorizontalAlignment="Left" Grid.Column="2" Grid.Row="1" Width="70" />
-
-                        </Grid>
-                        <!--#endregion-->
-
-                    </Grid>
-
-                    <!--#region khung button-->
-                    <StackPanel Grid.Row="2" Margin="0 0 0 10" Orientation="Horizontal">
-                        <Button ToolTip="Thanh Toán" HorizontalAlignment="Left" Margin="100 0 0 0" Height="40" Width="40" Style="{StaticResource MaterialDesignFloatingActionButton}" materialDesign:ButtonProgressAssist.IsIndicatorVisible="True" materialDesign:ButtonProgressAssist.Value="-1" materialDesign:ButtonProgressAssist.IsIndeterminate="True" Content="{materialDesign:PackIcon Kind=Payment}" Background="#2196f3" BorderBrush="#2196f3" />
-                        <Button ToolTip="In Hóa Đơn" Height="40" Width="40" Margin="30 0 0 0" Style="{StaticResource MaterialDesignFloatingActionButton}" materialDesign:ButtonProgressAssist.IsIndicatorVisible="True" materialDesign:ButtonProgressAssist.Value="-1" materialDesign:ButtonProgressAssist.IsIndeterminate="True" Content="{materialDesign:PackIcon Kind=Invoice}" Background="#2196f3" BorderBrush="#2196f3" />
-                        <Button ToolTip="Làm Mới" HorizontalAlignment="Left" Margin="30 0 0 0" Height="40" Width="40" Style="{StaticResource MaterialDesignFloatingActionButton}" materialDesign:ButtonProgressAssist.IsIndicatorVisible="True" materialDesign:ButtonProgressAssist.Value="-1" materialDesign:ButtonProgressAssist.IsIndeterminate="True" Content="{materialDesign:PackIcon Kind=Refresh}" Background="#2196f3" BorderBrush="#2196f3" />
-                        <Button ToolTip="Hủy Bỏ" Height="40" Width="40" Margin="30 0 0 0" Style="{StaticResource MaterialDesignFloatingActionButton}" materialDesign:ButtonProgressAssist.IsIndicatorVisible="True" materialDesign:ButtonProgressAssist.Value="-1" materialDesign:ButtonProgressAssist.IsIndeterminate="True" Content="{materialDesign:PackIcon Kind=CloseOutline}" Background="#2196f3" BorderBrush="#2196f3" />
-                    </StackPanel>
-                    <!--#endregion-->
-
-                </Grid>
-                <!--#endregion-->
-
-                <!--#region khung phải-->
-                <Grid Grid.Column="2">
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="260" />
-                        <RowDefinition Height="240" />
-                    </Grid.RowDefinitions>
-
-                    <!--#region loại sân -->
-                    <Grid Grid.Row="0">
-
-                        <TextBlock VerticalAlignment="Top" HorizontalAlignment="Center" Text="LOẠI SÂN" Style="{StaticResource TextBlockStyle}"/>
-
-                        <Button Margin="10 20 0 -5" VerticalAlignment="Top" HorizontalAlignment="Left" Width="160" Height="115" BorderBrush="#2196f3" Background="#2196f3" FontSize="15" FontWeight="Bold" BorderThickness="1">
-                            <StackPanel HorizontalAlignment="Center" Background="#2196f3" Cursor="Hand" >
-                                <Image Stretch="Fill"  Source="Images\san5.jpeg" Height="90" Width="120" />
-                                <TextBlock Width="50" Margin="10,0,0,0" Text="Sân 5" />
-                            </StackPanel>
-                        </Button>
-
-                        <Button Margin="10 0 0 0" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="160" Height="115" BorderBrush="#2196f3" Background="#2196f3" FontSize="15" FontWeight="Bold" BorderThickness="1">
-                            <StackPanel HorizontalAlignment="Center" Background="#2196f3" Cursor="Hand" >
-                                <Image Stretch="Fill"  Source="Images\san7.jpeg" Height="90" Width="120" />
-                                <TextBlock Width="50" Margin="10,0,0,0" Text="Sân 7" />
-                            </StackPanel>
-                        </Button>
-
-                        <Button Margin="0 20 10 0" VerticalAlignment="Top" HorizontalAlignment="Right" Width="160" Height="115" BorderBrush="#2196f3" Background="#2196f3" FontSize="15" FontWeight="Bold" BorderThickness="1">
-                            <StackPanel HorizontalAlignment="Center" Background="#2196f3" Cursor="Hand" >
-                                <Image Stretch="Fill"  Source="Images\san9.jpeg" Height="90" Width="120" />
-                                <TextBlock Width="50" Margin="10,0,0,0" Text="Sân 9" />
-                            </StackPanel>
-                        </Button>
-
-                        <Button Margin="0 0 10 0" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="160" Height="115" BorderBrush="#2196f3" Background="#2196f3" FontSize="15" FontWeight="Bold" BorderThickness="1">
-                            <StackPanel HorizontalAlignment="Center" Background="#2196f3" Cursor="Hand" >
-                                <Image Stretch="Fill"  Source="Images\san11.jpeg" Height="90" Width="120" />
-                                <TextBlock Width="60" Margin="10,0,0,0" Text="Sân 11" />
-                            </StackPanel>
-                        </Button>
-
-                    </Grid>
-                    <!--#endregion-->
-
-                    <!--#region thuê quần áo - dụng cụ-->
-                    <Grid Grid.Row="1">
-
-                        <TextBlock Margin="0 10 0 0" VerticalAlignment="Top" HorizontalAlignment="Center" Text="THUÊ QUẦN ÁO - DỤNG CỤ" Style="{StaticResource TextBlockStyle}"/>
-
-                        <DataGrid Height="160" Margin="0 0 0 30" Width="330" AutoGenerateColumns="False" Background="#2196f3">
-                            <DataGrid.Columns>
-                                <DataGridTextColumn Header="Số" Width="50" />
-                                <DataGridTextColumn Header="Mặt Hàng" Width="280" />
-                            </DataGrid.Columns>
-                        </DataGrid>
-                    </Grid>
-                    <!--#endregion-->
-
-                </Grid>
-                <!--#endregion-->
-
+                <Frame x:Name="FrameMain" NavigationUIVisibility="Hidden" />
             </Grid>
-            <!--#endregion-->
 
             <Grid  Grid.Row="3">
 
-                <Border Margin="0 50 0 0" CornerRadius="30" Height="40" Width="800" Opacity="0.5" Background="DarkGray">
+                <Border Margin="0 10 0 0" CornerRadius="5" Height="60" Width="600" Opacity="0.5" Background="DarkGray">
                 </Border>
 
-                <Button BorderThickness="0" Margin="-600 5 0 5" Height="50" Width="50" Background="Transparent">
-                    <Image Stretch="Fill" Margin="-15 -6 -15 -6" Source="Images\money.png" Height="50" Width="50" />
+                <Button Click="Button_Click" Uid="0" BorderThickness="0" Margin="-525 15 0 5" Height="45" Width="45" Background="Transparent">
+                    <Image Stretch="Fill" Margin="-15 -6 -15 -5" Source="Images\soccer.png" Height="45" Width="45" />
                 </Button>
 
-                <Button BorderThickness="0" Margin="-400 5 0 5" Height="50" Width="50" Background="Transparent">
-                    <Image Stretch="Fill" Margin="-15 -6 -15 -6" Source="Images/food.png" Height="50" Width="50" />
+                <Button Click="Button_Click" Uid="1" BorderThickness="0" Margin="-375 15 0 5" Height="50" Width="50" Background="Transparent">
+                    <Image Stretch="Fill" Margin="-15 -6 -15 -5" Source="Images/caulong.png" Height="50" Width="50" />
                 </Button>
 
-                <Button BorderThickness="0" Margin="-200 5 0 5" Height="50" Width="50" Background="Transparent">
-                    <Image Stretch="Fill" Margin="-15 -6 -15 -6" Source="Images/yte.png" Height="50" Width="50" />
+                <Button Click="Button_Click" Uid="2" BorderThickness="0" Margin="-225 15 0 5" Height="50" Width="50" Background="Transparent">
+                    <Image Stretch="Fill" Margin="-15 -6 -15 -5" Source="Images/food.png" Height="50" Width="50" />
                 </Button>
 
-                <Button BorderThickness="0" Margin="0 5 0 5" Height="50" Width="50" Background="Transparent">
-                    <Image Stretch="Fill" Margin="-15 -6 -15 -6" Source="Images/yard.png" Height="50" Width="50" />
+                <Button Click="Button_Click" Uid="3" BorderThickness="0" Margin="-75 15 0 5" Height="55" Width="55" Background="Transparent">
+                    <Image Stretch="Fill" Margin="-15 -6 -15 -5" Source="Images/yard.png" Height="55" Width="55" />
                 </Button>
 
-                <Button BorderThickness="0" Margin="200 5 0 5" Height="50" Width="50" Background="Transparent">
-                    <Image Stretch="Fill" Margin="-15 -6 -15 -6" Source="Images/soccer.png" Height="50" Width="50" />
+                <Button Click="Button_Click" Uid="4" BorderThickness="0" Margin="75 15 0 5" Height="55" Width="55" Background="Transparent">
+                    <Image Stretch="Fill" Margin="-15 -6 -15 -5" Source="Images/tool.png" Height="55" Width="55" />
                 </Button>
 
-                <Button BorderThickness="0" Margin="400 5 0 5" Height="50" Width="50" Background="Transparent">
-                    <Image Stretch="Fill" Margin="-15 -6 -15 -6" Source="Images/account.png" Height="50" Width="50" />
+                <Button Click="Button_Click" Uid="5" BorderThickness="0" Margin="225 15 0 5" Height="55" Width="55" Background="Transparent">
+                    <Image Stretch="Fill" Margin="-15 -6 -15 -5" Source="Images/yte.png" Height="45" Width="45" />
                 </Button>
 
-                <Button BorderThickness="0" Margin="600 5 0 5" Height="50" Width="50" Background="Transparent">
-                    <Image Stretch="Fill" Margin="-15 -6 -15 -6" Source="Images/Setting.png" Height="50" Width="50" />
+                <Button Click="Button_Click" Uid="6" BorderThickness="0" Margin="375 15 0 5" Height="50" Width="50" Background="Transparent">
+                    <Image Stretch="Fill" Margin="-15 -6 -15 -5" Source="Images/account.png" Height="50" Width="50" />
                 </Button>
 
+                <Button Click="Button_Click" Uid="7" BorderThickness="0" Margin="525 15 0 5" Height="50" Width="50" Background="Transparent">
+                    <Image Stretch="Fill" Margin="-15 -6 -15 -5" Source="Images/Setting.png" Height="50" Width="50" />
+                </Button>
+
+                <Border Margin="0 100 0 0" x:Name="Cursor" Background="Red" Width="15" Height="15" CornerRadius="15">
+                </Border>
+                
             </Grid>
 
         </Grid>
