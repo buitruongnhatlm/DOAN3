@@ -36,14 +36,24 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Guna.UI">
+      <HintPath>..\..\..\Liblary\GunaUI\Guna.UI.dll</HintPath>
+    </Reference>
     <Reference Include="MaterialDesignColors, Version=1.2.7.1979, Culture=neutral, PublicKeyToken=df2a72020bd7962a, processorArchitecture=MSIL">
       <HintPath>..\packages\MaterialDesignColors.1.2.7\lib\net45\MaterialDesignColors.dll</HintPath>
     </Reference>
     <Reference Include="MaterialDesignThemes.Wpf, Version=3.2.0.1979, Culture=neutral, PublicKeyToken=df2a72020bd7962a, processorArchitecture=MSIL">
       <HintPath>..\packages\MaterialDesignThemes.3.2.0\lib\net45\MaterialDesignThemes.Wpf.dll</HintPath>
     </Reference>
+    <Reference Include="MaterialSkin, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MaterialSkin.0.2.1\lib\MaterialSkin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.VisualBasic" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -62,21 +72,65 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="BadmintonPage.xaml.cs">
+    <Compile Include="Views\AccountPage.xaml.cs">
+      <DependentUpon>AccountPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\BadmintonPage.xaml.cs">
       <DependentUpon>BadmintonPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="SoccerPage.xaml.cs">
+    <Compile Include="Views\BillPage.xaml.cs">
+      <DependentUpon>BillPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\CustomMessageBox.xaml.cs">
+      <DependentUpon>CustomMessageBox.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\EquipmentPage.xaml.cs">
+      <DependentUpon>EquipmentPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\FoodPage.xaml.cs">
+      <DependentUpon>FoodPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ManagerPage.xaml.cs">
+      <DependentUpon>ManagerPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\MedicalPage.xaml.cs">
+      <DependentUpon>MedicalPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SoccerPage.xaml.cs">
       <DependentUpon>SoccerPage.xaml</DependentUpon>
     </Compile>
-    <Page Include="BadmintonPage.xaml">
+    <Compile Include="Views\YardTypePage.xaml.cs">
+      <DependentUpon>YardTypePage.xaml</DependentUpon>
+    </Compile>
+    <Page Include="Views\AccountPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Home.xaml">
+    <Page Include="Views\BadmintonPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\BillPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\CustomMessageBox.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\EquipmentPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\FoodPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Home.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Login.xaml">
+    <Page Include="Views\Login.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -84,14 +138,26 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Home.xaml.cs">
+    <Compile Include="Views\Home.xaml.cs">
       <DependentUpon>Home.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Login.xaml.cs">
+    <Compile Include="Views\Login.xaml.cs">
       <DependentUpon>Login.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="SoccerPage.xaml">
+    <Page Include="Views\ManagerPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\MedicalPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\SoccerPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\YardTypePage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -121,7 +187,9 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\account.png" />
@@ -148,6 +216,25 @@
   <ItemGroup>
     <Resource Include="Images\coupleyard.jpg" />
     <Resource Include="Images\singleyard.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\statistical.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\staff.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\hinhnenbongda.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DAL\DAL.csproj">
+      <Project>{832f4f81-0445-4026-a945-3e3f7af06c75}</Project>
+      <Name>DAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DTO\DTO.csproj">
+      <Project>{4021513c-ee0f-44f4-aaed-d0e9318bcbde}</Project>
+      <Name>DTO</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\MaterialDesignThemes.3.2.0\build\MaterialDesignThemes.targets" Condition="Exists('..\packages\MaterialDesignThemes.3.2.0\build\MaterialDesignThemes.targets')" />

@@ -5,6 +5,8 @@ using System.Data;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
+//using Syncfusion;
+
 
 namespace QuanLySanBongDaCauLong
 {
@@ -13,5 +15,10 @@ namespace QuanLySanBongDaCauLong
     /// </summary>
     public partial class App : Application
     {
+        public App()
+        {
+           // Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense("MzY1NjI3QDMxMzgyZTMzMmUzMG1NOW1EMUxXOGV6d29hWFhFVDJkUUVaQ2ozbnNnVElueDlxbHl3Tk4rMUU9");
+        }
     }
+        
 }

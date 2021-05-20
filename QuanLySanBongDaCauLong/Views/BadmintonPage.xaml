@@ -1,0 +1,247 @@
+﻿<Page x:Class="QuanLySanBongDaCauLong.BadmintonPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:QuanLySanBongDaCauLong"
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="1050"
+      ShowsNavigationUI="False" Background="Transparent" 
+      Title="BadmintonPage">
+
+    <Page.Resources>
+        <Style x:Key="TextBlockStyle" TargetType="{x:Type TextBlock}">
+            <Setter Property="Foreground" Value="#C2C3C3"/>
+            <Setter Property="FontSize" Value="10"/>
+            <Setter Property="FontWeight" Value="SemiBold"/>
+            <Setter Property="FontFamily" Value="Lucida Sans Unicode"/>
+        </Style>
+
+        <Style x:Key="LableStyle" TargetType="Label">
+            <Setter Property="FontSize" Value="12"/>
+            <Setter Property="Foreground" Value="Blue"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+        </Style>
+    </Page.Resources>
+
+    <Grid>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="300"/>
+            <ColumnDefinition Width="400"/>
+            <ColumnDefinition Width="350"/>
+        </Grid.ColumnDefinitions>
+
+        <!--#region khung trái -->
+        <StackPanel Orientation="Vertical" >
+
+            <!--#region ăn uống -->
+            <Grid Margin="0 5 0 0" Height="250" Width="300">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="300"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="230" />
+                </Grid.RowDefinitions>
+
+                <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" Text="THỨC ĂN - ĐỒ UỐNG" Style="{StaticResource TextBlockStyle}" Margin="47,2,14,2"/>
+
+                <DataGrid FontSize="12" SelectedCellsChanged="GetValueFromSelectedRowChanged" x:Name="dtgFood" Grid.Row="1" Margin="10,0,10,0.4" AutoGenerateColumns="False" Background="#2196f3" Grid.ColumnSpan="2" CanUserAddRows="False" CanUserDeleteRows="False" IsReadOnly="True">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="Số" Width="50" Binding="{Binding IDFood}" />
+                        <DataGridTextColumn Header="Mặt Hàng" Width="180" Binding="{Binding FoodName}" />
+                        <DataGridTextColumn Header="Giá" Width="100" Binding="{Binding Price}" />
+                        <DataGridTextColumn Header="Đơn Vị" Width="120" Binding="{Binding Unit}" />
+                        <DataGridTextColumn Header="Loại" Width="120" Binding="{Binding Type}" />
+                    </DataGrid.Columns>
+                </DataGrid>
+
+            </Grid>
+            <!--#endregion-->
+
+            <!--#region dụng cụ y tế -->
+            <Grid Margin="0 10 0 0" Height="200" Width="300">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="180" />
+                </Grid.RowDefinitions>
+
+                <TextBlock Margin="0 0 0 0" VerticalAlignment="Center" HorizontalAlignment="Center" Text="DỤNG CỤ Y TẾ" Style="{StaticResource TextBlockStyle}"/>
+
+                <DataGrid FontSize="12" x:Name="dtgMedical" SelectedCellsChanged="GetValueFromSelectedRowChanged" Grid.Row="1" Margin="10 0 10 20" AutoGenerateColumns="False" Background="#2196f3" ScrollViewer.CanContentScroll="True"  ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.HorizontalScrollBarVisibility="Auto" CanUserAddRows="False" CanUserDeleteRows="False" IsReadOnly="True">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="Số" Width="50" Binding="{Binding IDMedical}" />
+                        <DataGridTextColumn Header="Mặt Hàng" Width="180" Binding="{Binding MedicalName}" />
+                        <DataGridTextColumn Header="Giá" Width="100" Binding="{Binding Price}" />
+                        <DataGridTextColumn Header="Đơn Vị" Width="150" Binding="{Binding Unit}" />
+                        <DataGridTextColumn Header="Loại" Width="120" Binding="{Binding Type}" />
+                    </DataGrid.Columns>
+                </DataGrid>
+
+            </Grid>
+            <!--#endregion-->
+
+        </StackPanel>
+        <!--#endregion-->
+
+        <!--#region khung giữa -->
+        <Grid Grid.Column="1" Grid.Row="1" >
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="120" />
+                <RowDefinition Height="330" />
+            </Grid.RowDefinitions>
+
+            <!--#region khung controls-->
+            <Grid Margin="0 5 0 0" Grid.Row="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="250" />
+                    <ColumnDefinition Width="150" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="40"  />
+                    <RowDefinition Height="40"  />
+                    <RowDefinition Height="40"  />
+                </Grid.RowDefinitions>
+
+                <Label Grid.Column="0" Margin="0 5 0 0" Grid.Row="0" HorizontalAlignment="Left" Style="{StaticResource LableStyle}" Content="Tên khách hàng" VerticalAlignment="Center" />
+                <TextBox x:Name="txtTenKhachHang" Padding="0 5 0 0" Margin="100 0 0 5" HorizontalAlignment="Left" Grid.Column="0" Grid.Row="0" Width="150" />
+
+                <Label Grid.Column="1" Margin="5 5 0 0" Grid.Row="0" HorizontalAlignment="Left" Style="{StaticResource LableStyle}" Content="Loại" VerticalAlignment="Center" />
+                <TextBox IsReadOnly="True" x:Name="txtLoai" Padding="0 5 0 0" Margin="35 0 0 5" HorizontalAlignment="Left" Grid.Column="1" Grid.Row="0" Width="110" />
+
+                <Label  Margin="0 15 0 0" Grid.Column="0" Grid.Row="1" HorizontalAlignment="Left" Style="{StaticResource LableStyle}" Content="Mặt hàng" VerticalAlignment="Top" />
+                <TextBox x:Name="txtMatHang" Padding="0 5 0 0" Margin="100 0 0 5" HorizontalAlignment="Left" Grid.Column="0" Grid.Row="1" Width="150" />
+
+                <Label  Margin="0 5 0 0" Grid.Column="0" Grid.Row="2" HorizontalAlignment="Left" Style="{StaticResource LableStyle}" Content="Số lượng" VerticalAlignment="Top" />
+                <StackPanel Margin="95 0 0 10" Orientation="Horizontal" Grid.Column="0" Grid.Row="2" >
+                    <Button Click="numericDown_Click" x:Name="numericDown" Margin="5,5,0,0" Padding="0" Width="30" Height="25" Style="{StaticResource MaterialDesignRaisedButton}" materialDesign:ButtonProgressAssist.Value="-1" materialDesign:ButtonProgressAssist.IsIndicatorVisible="True" materialDesign:ButtonProgressAssist.IsIndeterminate="True" ToolTip="Thêm" Content="{materialDesign:PackIcon Kind=ArrowDropDownCircle}" Background="#2196f3" BorderBrush="#2196f3" />
+                    <TextBox Padding="5 0 0 0" x:Name="txtNumeric" IsReadOnly="True" Margin="0,0,0,5" Width="40" Height="30" FontSize="20" Text="1" />
+                    <Button Click="numericUp_Click" x:Name="numericUp" Margin="0,5,0,0" Padding="0" Width="30" Height="25" Style="{StaticResource MaterialDesignRaisedButton}" materialDesign:ButtonProgressAssist.Value="-1" materialDesign:ButtonProgressAssist.IsIndicatorVisible="True" materialDesign:ButtonProgressAssist.IsIndeterminate="True" ToolTip="Thêm" Content="{materialDesign:PackIcon Kind=ArrowUpDropCircle}" Background="#2196f3" BorderBrush="#2196f3" />
+                </StackPanel>
+
+
+                <Label Margin="5 15 0 0" Grid.Column="1" Grid.Row="1" HorizontalAlignment="Left" Style="{StaticResource LableStyle}" Content="Giá" VerticalAlignment="Top" />
+                <TextBox Padding="0 5 0 0" x:Name="txtGia" IsReadOnly="True" Margin="35 0 0 5" HorizontalAlignment="Left" Grid.Column="1" Grid.Row="1" Width="110" />
+
+                <Button x:Name="btnAdd" Click="btnAdd_Click" Margin="-30 0 0 5" Width="50" Height="25" Grid.Column="1" Grid.Row="2" Style="{StaticResource MaterialDesignRaisedButton}" materialDesign:ButtonProgressAssist.Value="-1" materialDesign:ButtonProgressAssist.IsIndicatorVisible="True" materialDesign:ButtonProgressAssist.IsIndeterminate="True" ToolTip="Thêm" Content="{materialDesign:PackIcon Kind=Add}" Background="#2196f3" BorderBrush="#2196f3" />
+                <Button x:Name="btnCancel" Click="btnCancel_Click" Margin="90 0 0 5" Width="50" Height="25" Grid.Column="1" Grid.Row="2" Style="{StaticResource MaterialDesignRaisedButton}" materialDesign:ButtonProgressAssist.Value="-1" materialDesign:ButtonProgressAssist.IsIndicatorVisible="True" materialDesign:ButtonProgressAssist.IsIndeterminate="True" ToolTip="Thêm" Content="{materialDesign:PackIcon Kind=CloseOutline}" Background="#2196f3" BorderBrush="#2196f3" />
+            </Grid>
+            <!--#endregion-->
+
+            <Grid Grid.Row="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="400"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="220" />
+                    <RowDefinition Height="110" />
+                </Grid.RowDefinitions>
+
+                <!--#region khung dữ liệu trung tâm-->
+                <DataGrid x:Name="dtgMain" FontSize="12" Width="400" Height="220" IsReadOnly="True" CanUserAddRows="False" SelectedCellsChanged="GetValueFromSelectedRowChanged" Background="#2196f3" ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.HorizontalScrollBarVisibility="Auto" AutoGenerateColumns="False" CanUserDeleteRows="False">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="Số" Width="50" Binding="{Binding So}" />
+                        <DataGridTextColumn Header="Mặt Hàng" Width="110" Binding="{Binding MatHang}" />
+                        <DataGridTextColumn Header="Số Lượng" Width="90" Binding="{Binding SoLuong}" />
+                        <DataGridTextColumn Header="Giá" Width="70" Binding="{Binding Gia}" />
+                        <DataGridTextColumn Header="Tiền" Width="80" Binding="{Binding Tien}" />
+                        <DataGridTextColumn Header="Loại" Width="100" Binding="{Binding Loai}" />
+                    </DataGrid.Columns>
+                </DataGrid>
+                <!--#endregion-->
+
+                <!--#region  khung tiền -->
+                <Grid Grid.Row="1" Grid.ColumnSpan="2">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="200" />
+                        <ColumnDefinition Width="200" />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="30" />
+                        <RowDefinition Height="30" />
+                        <RowDefinition Height="50" />
+                    </Grid.RowDefinitions>
+
+                    <Label  Margin="0 0 0 0" Grid.Column="0" Grid.Row="0" HorizontalAlignment="Left" Style="{StaticResource LableStyle}" Content="Tổng Cộng" VerticalAlignment="Center" />
+                    <TextBox Text="0" IsReadOnly="True" x:Name="txtTongCong" Margin="75 0 0 5" HorizontalAlignment="Left" Grid.Column="0" Grid.Row="0" Width="120" />
+
+                    <Label Grid.Column="1" Grid.Row="1" HorizontalAlignment="Left" Style="{StaticResource LableStyle}" Content="Tổng Thu" VerticalAlignment="Center" />
+                    <TextBox Text="0" x:Name="txtTongThu" Margin="75 0 0 5" HorizontalAlignment="Left" Grid.Column="1" Grid.Row="1" Width="120" />
+
+                    <Label Grid.Column="0" Grid.Row="1" HorizontalAlignment="Left" Style="{StaticResource LableStyle}" Content="Tổng Tiền" VerticalAlignment="Center" />
+                    <TextBox IsReadOnly="True" Text="0" x:Name="txtTongTien" Margin="75 0 0 5" HorizontalAlignment="Left" Grid.Column="0" Grid.Row="1" Width="120" />
+
+                    <Label Margin="0 0 0 0" Grid.Column="1" Grid.Row="0" HorizontalAlignment="Left" Style="{StaticResource LableStyle}" Content="Giảm Giá" VerticalAlignment="Center" />
+                    <TextBox Text="0" x:Name="txtGiamGia" Margin="75 0 0 5" HorizontalAlignment="Left" Grid.Column="1" Grid.Row="0" Width="120" />
+
+                    <Label Margin="0 0 0 10" Grid.Column="0" Grid.Row="2" HorizontalAlignment="Left" Style="{StaticResource LableStyle}" Content="Hoàn Lại" VerticalAlignment="Center" />
+                    <TextBox IsReadOnly="True" Text="0" x:Name="txtHoanLai" Margin="75 0 0 15" HorizontalAlignment="Left" Grid.Column="0" Grid.Row="2" Width="120" Height="30" />
+
+                    <StackPanel Grid.Row="2" Grid.Column="1" Margin="30 0 0 0" Orientation="Horizontal">
+                        <Button x:Name="btnKetXuat" Click="btnKetXuat_Click" ToolTip="Kết Xuất" HorizontalAlignment="Left" Margin="0 0 0 0" Height="40" Width="40" Style="{StaticResource MaterialDesignFloatingActionButton}" materialDesign:ButtonProgressAssist.IsIndicatorVisible="True" materialDesign:ButtonProgressAssist.Value="-1" materialDesign:ButtonProgressAssist.IsIndeterminate="True" Content="{materialDesign:PackIcon Kind=CalculatorVariant}" Background="#2196f3" BorderBrush="#2196f3" />
+                        <Button x:Name="btnThanhToan" Click="btnThanhToan_Click" ToolTip="Thanh Toán" HorizontalAlignment="Left" Margin="10 0 0 0" Height="40" Width="40" Style="{StaticResource MaterialDesignFloatingActionButton}" materialDesign:ButtonProgressAssist.IsIndicatorVisible="True" materialDesign:ButtonProgressAssist.Value="-1" materialDesign:ButtonProgressAssist.IsIndeterminate="True" Content="{materialDesign:PackIcon Kind=Payment}" Background="#2196f3" BorderBrush="#2196f3" />
+                        <Button ToolTip="Làm Mới" x:Name="btnLamMoi" Click="btnLamMoi_Click" HorizontalAlignment="Left" Margin="10 0 0 0" Height="40" Width="40" Style="{StaticResource MaterialDesignFloatingActionButton}" materialDesign:ButtonProgressAssist.IsIndicatorVisible="True" materialDesign:ButtonProgressAssist.Value="-1" materialDesign:ButtonProgressAssist.IsIndeterminate="True" Content="{materialDesign:PackIcon Kind=Refresh}" Background="#2196f3" BorderBrush="#2196f3" />
+                    </StackPanel>
+                </Grid>
+                <!--#endregion-->
+
+            </Grid>
+
+            <!--#region khung button-->
+
+            <!--#endregion-->
+
+        </Grid>
+        <!--#endregion-->
+
+        <!--#region khung phải-->
+        <Grid Grid.Column="2">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="200" />
+                <RowDefinition Height="250" />
+            </Grid.RowDefinitions>
+
+            <!--#region loại sân -->
+            <Grid Grid.Row="0">
+
+                <TextBlock Margin="0 5 0 0" VerticalAlignment="Top" HorizontalAlignment="Center" Text="LOẠI SÂN" Style="{StaticResource TextBlockStyle}"/>
+
+                <DataGrid FontSize="12" x:Name="dtgYardType" SelectedCellsChanged="GetValueFromSelectedRowChanged" Height="170" Margin="0 20 0 10" Width="330" AutoGenerateColumns="False" Background="#2196f3" CanUserAddRows="False" CanUserDeleteRows="False" IsReadOnly="True">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="Số" Width="50" Binding="{Binding IDYardType}" />
+                        <DataGridTextColumn Header="Loại Sân" Width="180" Binding="{Binding YardTypeName}" />
+                        <DataGridTextColumn Header="Giá" Width="100" Binding="{Binding Price}" />
+                        <DataGridTextColumn Header="Đơn Vị" Width="120" Binding="{Binding Unit}" />
+                        <DataGridTextColumn Header="Loại" Width="120" Binding="{Binding Type}" />
+                    </DataGrid.Columns>
+                </DataGrid>
+
+            </Grid>
+            <!--#endregion-->
+
+            <!--#region thuê quần áo - dụng cụ-->
+            <Grid Grid.Row="1">
+
+                <TextBlock VerticalAlignment="Top" HorizontalAlignment="Center" Text="THUÊ QUẦN ÁO - DỤNG CỤ" Style="{StaticResource TextBlockStyle}"/>
+
+                <DataGrid FontSize="12" x:Name="dtgEquipment" SelectedCellsChanged="GetValueFromSelectedRowChanged" Height="230" Margin="0 20 0 5" Width="330" AutoGenerateColumns="False" Background="#2196f3" CanUserAddRows="False" CanUserDeleteRows="False" IsReadOnly="True">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="Số" Width="50" Binding="{Binding IDEquipment}" />
+                        <DataGridTextColumn Header="Mặt Hàng" Width="180" Binding="{Binding EquipmentName}" />
+                        <DataGridTextColumn Header="Giá" Width="100" Binding="{Binding Price}" />
+                        <DataGridTextColumn Header="Đơn Vị" Width="120" Binding="{Binding Unit}" />
+                        <DataGridTextColumn Header="Loại" Width="120" Binding="{Binding Type}" />
+                    </DataGrid.Columns>
+                </DataGrid>
+            </Grid>
+            <!--#endregion-->
+
+        </Grid>
+        <!--#endregion-->
+
+    </Grid>
+    <!--#endregion-->
+</Page>

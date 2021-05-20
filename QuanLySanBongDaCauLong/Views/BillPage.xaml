@@ -1,0 +1,80 @@
+﻿<Page x:Class="QuanLySanBongDaCauLong.Views.BillPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+      xmlns:local="clr-namespace:QuanLySanBongDaCauLong"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="1050"
+      ShowsNavigationUI="False" Background="Transparent" 
+      Title="BillPage">
+
+    <Grid>
+        <!--#region CHIA DÒNG -->
+        <Grid.RowDefinitions>
+            <RowDefinition Height="25" />
+            <RowDefinition Height="60" />
+            <RowDefinition Height="360" />
+        </Grid.RowDefinitions>
+        <!--#endregion-->
+
+        <!--TIÊU ĐỀ-->
+        <TextBlock Margin="0 5 0 0" FontWeight="Bold" Foreground="HotPink" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="13" Grid.Column="0" Grid.Row="0" >LỊCH SỬ THANH TOÁN</TextBlock>
+
+        <!--#region THANH TÌM KIẾM-->
+        <materialDesign:ColorZone Grid.Row="1" Width="600" Background="White" Padding="5" Height="60">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" >
+                <materialDesign:ColorZone Margin="0 10 10 0" Mode="Standard" CornerRadius="8" materialDesign:ShadowAssist.ShadowDepth="Depth1">
+                    <Grid >
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="300" />
+                        </Grid.ColumnDefinitions>
+                        <Button Style="{DynamicResource MaterialDesignToolButton}">
+                            <materialDesign:PackIcon Kind="Search" Opacity="50" />
+                        </Button>
+                        <TextBox x:Name="txtSearch" Grid.Column="1" materialDesign:HintAssist.Hint="Nhập thông tin cần tìm kiếm" materialDesign:TextFieldAssist.DecorationVisibility="Hidden"
+                             BorderThickness="0" VerticalAlignment="Center" />
+                    </Grid>
+                </materialDesign:ColorZone>
+                <ComboBox x:Name="cbbLoaiTimKiem" IsEditable="False" Height="30" Width="140" HorizontalAlignment="Center" Margin="10 10 20 10" materialDesign:HintAssist.Hint="Tìm Kiếm Theo" materialDesign:HintAssist.HintOpacity=".25">
+                    <ComboBoxItem Content="Tên Khách Hàng" Selector.IsSelected="True"/>
+                    <ComboBoxItem Content="Ngày Thanh Toán"/>
+                    <ComboBoxItem Content="Ghi Chú"/>
+                </ComboBox>
+                <Button ToolTip="Tìm kiếm" Height="45" Width="45" Style="{StaticResource MaterialDesignFloatingActionButton}" materialDesign:ButtonProgressAssist.IsIndicatorVisible="True" materialDesign:ButtonProgressAssist.Value="-1" materialDesign:ButtonProgressAssist.IsIndeterminate="True" Content="{materialDesign:PackIcon Kind=Search}" Background="#2196f3" BorderBrush="#2196f3" />
+            </StackPanel>
+        </materialDesign:ColorZone>
+        <!--#endregion-->
+
+        <!--#region DATA GRID -->
+        <Grid Grid.Row="2" Height="350" Width="1030">
+            <DataGrid x:Name="dtgLog" AutoGenerateColumns="False" Background="#2196f3" CanUserAddRows="False" CanUserDeleteRows="False" IsReadOnly="True">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Số Thứ Tự" Width="120" Binding="{Binding Path= IDBillInfomation}" />
+                    <DataGridTextColumn Header="ID Bill" Width="100" Binding="{Binding Path=IDBill}" />
+                    <DataGridTextColumn Header="Tên Khách Hàng" Width="200" Binding="{Binding Path=CustomerName}" />
+                    <DataGridTextColumn Header="Giá" Width="150" Binding="{Binding Path=Price}" />
+                    <DataGridTextColumn Header="Giảm Giá" Width="150" Binding="{Binding Path=Discount}" />
+                    <DataGridTextColumn Header="Tổng Giá" Width="150" Binding="{Binding Path= TotalPrice}" />
+                    <DataGridTextColumn Header="Tổng Thu" Width="150" Binding="{Binding Path=Proceeds}" />
+                    <DataGridTextColumn Header="Hoàn Lại" Width="200" Binding="{Binding Path=Change}" />
+                    <DataGridTextColumn Header="Ngày Thanh Toán" Width="150" Binding="{Binding Path=Date}" />
+                    <DataGridTextColumn Header="Trạng Thái" Width="150" Binding="{Binding Path=Note}" />
+                    <DataGridTextColumn Header="Đồ Ăn" Width="150" Binding="{Binding Path= FoodName}" />
+                    <DataGridTextColumn Header="Số Lượng" Width="150" Binding="{Binding Path=FoodCount}" />
+                    <DataGridTextColumn Header="Sân" Width="200" Binding="{Binding Path=YardTypeName}" />
+                    <DataGridTextColumn Header="Số Lượng" Width="150" Binding="{Binding Path=YardCount}" />
+                    <DataGridTextColumn Header="Thuốc" Width="150" Binding="{Binding Path= MedicalName}" />
+                    <DataGridTextColumn Header="Số Lượng" Width="150" Binding="{Binding Path=MedicalCount}" />
+                    <DataGridTextColumn Header="Đồ" Width="200" Binding="{Binding Path=EquipmentName}" />
+                    <DataGridTextColumn Header="Số Lượng" Width="150" Binding="{Binding Path=EquipmentCount}" />
+                    <DataGridTextColumn Header="Nhân Viên" Width="150" Binding="{Binding Path= Name}" />
+                </DataGrid.Columns>
+            </DataGrid>
+        </Grid>
+        <!--#endregion-->
+
+    </Grid>
+</Page>

@@ -12,17 +12,24 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using DAL;
 
-namespace QuanLySanBongDaCauLong
+namespace QuanLySanBongDaCauLong.Views
 {
     /// <summary>
-    /// Interaction logic for BadmintonPage.xaml
+    /// Interaction logic for BillPage.xaml
     /// </summary>
-    public partial class BadmintonPage : Page
+    public partial class BillPage : Page
     {
-        public BadmintonPage()
+        public BillPage()
         {
             InitializeComponent();
+            LoadData();
+        }
+
+        public void LoadData()
+        {
+            dtgLog.ItemsSource = BillLogDAL.Instance.GetLogBill().DefaultView;
         }
     }
 }

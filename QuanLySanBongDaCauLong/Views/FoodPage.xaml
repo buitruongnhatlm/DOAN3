@@ -1,0 +1,102 @@
+﻿<Page x:Class="QuanLySanBongDaCauLong.Views.FoodPage"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:local="clr-namespace:QuanLySanBongDaCauLong"
+        mc:Ignorable="d" 
+        d:DesignHeight="450" d:DesignWidth="1050"
+        ShowsNavigationUI="False" Background="Transparent" 
+        Title="FoodPage">
+
+    <Grid>
+
+        <!--#region CHIA DÒNG -->
+        <Grid.RowDefinitions>
+            <RowDefinition Height="25" />
+            <RowDefinition Height="60" />
+            <RowDefinition Height="320" />
+            <RowDefinition Height="45" />
+        </Grid.RowDefinitions>
+        <!--#endregion-->
+
+        <!--TIÊU ĐỀ-->
+        <TextBlock Margin="0 5 0 0" FontWeight="Bold" Foreground="HotPink" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="13" Grid.Column="0" Grid.Row="0" >ĐỒ ĂN THỨC UỐNG</TextBlock>
+
+        <!--#region THANH TÌM KIẾM-->
+        <materialDesign:ColorZone Grid.Row="1" Width="600" Background="White" Padding="5" Height="60">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" >
+                <materialDesign:ColorZone Margin="0 10 10 0" Mode="Standard" CornerRadius="8" materialDesign:ShadowAssist.ShadowDepth="Depth1">
+                    <Grid >
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="300" />
+                        </Grid.ColumnDefinitions>
+                        <Button Style="{DynamicResource MaterialDesignToolButton}">
+                            <materialDesign:PackIcon Kind="Search" Opacity="50" />
+                        </Button>
+                        <TextBox x:Name="txtSearch" Grid.Column="1" materialDesign:HintAssist.Hint="Nhập thông tin cần tìm kiếm" materialDesign:TextFieldAssist.DecorationVisibility="Hidden"
+                             BorderThickness="0" VerticalAlignment="Center" />
+                    </Grid>
+                </materialDesign:ColorZone>
+                <ComboBox x:Name="cbbLoaiTimKiem" IsEditable="False" Height="30" Width="140" HorizontalAlignment="Center" Margin="10 10 20 10" materialDesign:HintAssist.Hint="Tìm Kiếm Theo" materialDesign:HintAssist.HintOpacity=".25">
+                    <ComboBoxItem Content="Tên Đồ Uống" Selector.IsSelected="True"/>
+                    <ComboBoxItem Content="Đơn Vị"/>
+                    <ComboBoxItem Content="Ghi Chú"/>
+                </ComboBox>
+                <Button ToolTip="Tìm kiếm" Height="45" Width="45" Style="{StaticResource MaterialDesignFloatingActionButton}" materialDesign:ButtonProgressAssist.IsIndicatorVisible="True" materialDesign:ButtonProgressAssist.Value="-1" materialDesign:ButtonProgressAssist.IsIndeterminate="True" Content="{materialDesign:PackIcon Kind=Search}" Background="#2196f3" BorderBrush="#2196f3" />
+            </StackPanel>
+        </materialDesign:ColorZone>
+        <!--#endregion-->
+
+        <!--#region DATA GRID -->
+        <Grid Grid.Row="2" Height="300" Width="1030">
+            <DataGrid x:Name="dtgFood" SelectedCellsChanged="GetValueFromSelectedRowChanged"  AutoGenerateColumns="False" Background="#2196f3" CanUserAddRows="False" CanUserDeleteRows="False" IsReadOnly="True">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Số Thứ Tự" Width="120" Binding="{Binding Path= IDFood}" />
+                    <DataGridTextColumn Header="Tên Đồ Ăn Thức Uống" Width="400" Binding="{Binding Path=FoodName}" />
+                    <DataGridTextColumn Header="Đơn Vị" Width="150" Binding="{Binding Path=Unit}" />
+                    <DataGridTextColumn Header="Loại" Width="150" Binding="{Binding Path=Type}" />
+                    <DataGridTextColumn Header="Giá" Width="150" Binding="{Binding Path=Price}" />
+                </DataGrid.Columns>
+            </DataGrid>
+        </Grid>
+        <!--#endregion-->
+
+        <!--#region KHUNG DƯỚI -->
+        <StackPanel Grid.Row="3">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="200" />
+                    <ColumnDefinition Width="200" />
+                    <ColumnDefinition Width="200" />
+                    <ColumnDefinition Width="200" />
+                    <ColumnDefinition Width="200" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="45" />
+                </Grid.RowDefinitions>
+
+                <TextBox x:Name="txtTenDoUong" Grid.Column="0" Height="30" Width="190" HorizontalAlignment="Left" Margin="60 0 5 0" materialDesign:HintAssist.Hint="Tên Sân" materialDesign:TextFieldAssist.DecorationVisibility="Hidden" ></TextBox>
+                <materialDesign:PackIcon Margin="20 10 0 0" HorizontalAlignment="Left" VerticalAlignment="Center" Height="30" Width="30" Kind="Food" Grid.Column="0" Grid.Row="0" />
+
+                <TextBox x:Name="txtDonViTinh" Grid.Column="1" Height="30" Width="190" HorizontalAlignment="Left" Margin="60 0 5 0" materialDesign:HintAssist.Hint="Đơn Vị Tính" materialDesign:TextFieldAssist.DecorationVisibility="Hidden" ></TextBox>
+                <materialDesign:PackIcon Margin="20 10 0 0" HorizontalAlignment="Left" VerticalAlignment="Center" Height="30" Width="30" Kind="Numbers" Grid.Column="1" />
+
+                <TextBox x:Name="txtGia" Grid.Column="2" Height="30"  Width="190" HorizontalAlignment="Left" Margin="60 0 5 0" materialDesign:HintAssist.Hint="Giá" materialDesign:TextFieldAssist.DecorationVisibility="Hidden" ></TextBox>
+                <materialDesign:PackIcon Grid.Column="2" Margin="20 10 0 0" HorizontalAlignment="Left" VerticalAlignment="Center" Height="30" Width="30" Kind="Note" />
+
+                <TextBox x:Name="txtGhiChu" Grid.Column="3" Height="30"  Width="190" HorizontalAlignment="Left" Margin="60 0 5 0" materialDesign:HintAssist.Hint="Ghi Chú" materialDesign:TextFieldAssist.DecorationVisibility="Hidden" ></TextBox>
+                <materialDesign:PackIcon Grid.Column="3" Margin="20 10 0 0" HorizontalAlignment="Left" VerticalAlignment="Center" Height="30" Width="30" Kind="Note" />
+
+                <Button Grid.Column="4" Grid.Row="1" ToolTip="Thêm" HorizontalAlignment="Left" Margin="40 0 0 0" Height="45" Width="45" Style="{StaticResource MaterialDesignFloatingActionButton}" materialDesign:ButtonProgressAssist.IsIndicatorVisible="True" materialDesign:ButtonProgressAssist.Value="-1" materialDesign:ButtonProgressAssist.IsIndeterminate="True" Content="{materialDesign:PackIcon Kind=Add}" Background="#2196f3" BorderBrush="#2196f3" />
+                <Button Grid.Column="4" Grid.Row="1" ToolTip="Cập nhật" HorizontalAlignment="Left" Height="45" Width="45" Margin="95 0 0 0" Style="{StaticResource MaterialDesignFloatingActionButton}" materialDesign:ButtonProgressAssist.IsIndicatorVisible="True" materialDesign:ButtonProgressAssist.Value="-1" materialDesign:ButtonProgressAssist.IsIndeterminate="True" Content="{materialDesign:PackIcon Kind=Edit}" Background="#2196f3" BorderBrush="#2196f3" />
+                <Button Grid.Column="4" Grid.Row="1" ToolTip="Xóa" HorizontalAlignment="Left" Margin="150 0 0 0" Height="45" Width="45" Style="{StaticResource MaterialDesignFloatingActionButton}" materialDesign:ButtonProgressAssist.IsIndicatorVisible="True" materialDesign:ButtonProgressAssist.Value="-1" materialDesign:ButtonProgressAssist.IsIndeterminate="True" Content="{materialDesign:PackIcon Kind=Delete}" Background="#2196f3" BorderBrush="#2196f3" />
+
+            </Grid>
+        </StackPanel>
+        <!--#endregion-->
+
+    </Grid>
+</Page>

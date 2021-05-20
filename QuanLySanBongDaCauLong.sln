@@ -5,6 +5,10 @@ VisualStudioVersion = 15.0.26228.102
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QuanLySanBongDaCauLong", "QuanLySanBongDaCauLong\QuanLySanBongDaCauLong.csproj", "{BF01859C-FB2D-410F-8404-70E7251763C8}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DAL", "DAL\DAL.csproj", "{832F4F81-0445-4026-A945-3E3F7AF06C75}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DTO", "DTO\DTO.csproj", "{4021513C-EE0F-44F4-AAED-D0E9318BCBDE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +19,14 @@ Global
 		{BF01859C-FB2D-410F-8404-70E7251763C8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BF01859C-FB2D-410F-8404-70E7251763C8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BF01859C-FB2D-410F-8404-70E7251763C8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{832F4F81-0445-4026-A945-3E3F7AF06C75}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{832F4F81-0445-4026-A945-3E3F7AF06C75}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{832F4F81-0445-4026-A945-3E3F7AF06C75}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{832F4F81-0445-4026-A945-3E3F7AF06C75}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4021513C-EE0F-44F4-AAED-D0E9318BCBDE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4021513C-EE0F-44F4-AAED-D0E9318BCBDE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4021513C-EE0F-44F4-AAED-D0E9318BCBDE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4021513C-EE0F-44F4-AAED-D0E9318BCBDE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

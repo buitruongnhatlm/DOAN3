@@ -1,0 +1,180 @@
+﻿<Page x:Class="QuanLySanBongDaCauLong.Views.MedicalPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:QuanLySanBongDaCauLong.Views"
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="1050"
+      ShowsNavigationUI="False" Background="Transparent" 
+      Title="MedicalPage">
+
+    <Grid>
+
+        <!--#region CHIA DÒNG -->
+        <Grid.RowDefinitions>
+            <RowDefinition Height="20" />
+            <RowDefinition Height="60" />
+            <RowDefinition Height="220" />
+            <RowDefinition Height="150" />
+        </Grid.RowDefinitions>
+        <!--#endregion-->
+
+        <!--#region CHIA CỘT-->
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="525" />
+            <ColumnDefinition Width="525" />
+        </Grid.ColumnDefinitions>
+        <!--#endregion-->
+
+        <!--TIÊU ĐỀ-->
+        <TextBlock FontWeight="Bold" Margin="0 5 0 0" Foreground="HotPink" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="13" Grid.Column="0" Grid.Row="0" >MẶT HÀNG Y TẾ</TextBlock>
+        <TextBlock FontWeight="Bold" Margin="0 5 0 0" Foreground="HotPink" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="13" Grid.Column="1" Grid.Row="0" >BỘ PHẬN</TextBlock>
+
+        <!--#region KHUNG TRÁI -->
+
+        <!--#region THANH TÌM KIẾM-->
+        <materialDesign:ColorZone Grid.Row="1" Width="515" Background="White" Padding="5" Height="60">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" >
+                <materialDesign:ColorZone Margin="0 10 10 0" Mode="Standard" CornerRadius="8" materialDesign:ShadowAssist.ShadowDepth="Depth1">
+                    <Grid >
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="250" />
+                        </Grid.ColumnDefinitions>
+                        <Button Style="{DynamicResource MaterialDesignToolButton}">
+                            <materialDesign:PackIcon Kind="Search" Opacity="50" />
+                        </Button>
+                        <TextBox x:Name="txtSearch" Grid.Column="1" materialDesign:HintAssist.Hint="Nhập thông tin cần tìm kiếm" materialDesign:TextFieldAssist.DecorationVisibility="Hidden"
+                             BorderThickness="0" VerticalAlignment="Center" />
+                    </Grid>
+                </materialDesign:ColorZone>
+                <ComboBox x:Name="cbbLoaiTimKiem" IsEditable="False" Height="30" Width="140" HorizontalAlignment="Center" Margin="10 10 20 10" materialDesign:HintAssist.Hint="Tìm Kiếm Theo" materialDesign:HintAssist.HintOpacity=".25">
+                    <ComboBoxItem Content="Thuốc Giảm Đau" Selector.IsSelected="True"/>
+                    <ComboBoxItem Content="Thuốc Sát Trùng"/>
+                    <ComboBoxItem Content="Thuốc Khác"/>
+                    <ComboBoxItem Content="Ghi Chú"/>
+                </ComboBox>
+                <Button ToolTip="Tìm kiếm" Height="45" Width="45" Style="{StaticResource MaterialDesignFloatingActionButton}" materialDesign:ButtonProgressAssist.IsIndicatorVisible="True" materialDesign:ButtonProgressAssist.Value="-1" materialDesign:ButtonProgressAssist.IsIndeterminate="True" Content="{materialDesign:PackIcon Kind=Search}" Background="#2196f3" BorderBrush="#2196f3" />
+            </StackPanel>
+        </materialDesign:ColorZone>
+        <!--#endregion-->
+
+        <!--#region DATA GRID  -->
+        <Grid Grid.Row="2" Grid.Column="0" Height="210" Width="500">
+            <DataGrid x:Name="dtgMedical" SelectedCellsChanged="GetValueFromSelectedRowChangedMedical" AutoGenerateColumns="False" Background="#2196f3" CanUserAddRows="False" CanUserDeleteRows="False" IsReadOnly="True">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="STT" Width="60" Binding="{Binding Path= IDMedical}" />
+                    <DataGridTextColumn Header="Tên Đồ" Width="150" Binding="{Binding Path= MedicalName}" />
+                    <DataGridTextColumn Header="Đơn Vị" Width="80" Binding="{Binding Path=Unit}" />
+                    <DataGridTextColumn Header="Loại" Width="100" Binding="{Binding Path=Type}" />
+                    <DataGridTextColumn Header="Giá" Width="100" Binding="{Binding Path=Price}" />
+                </DataGrid.Columns>
+            </DataGrid>
+        </Grid>
+        <!--#endregion-->
+
+        <!--#region KHUNG DƯỚI -->
+        <StackPanel Grid.Column="0" Grid.Row="3" Margin="0 0 0 0">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="250" />
+                    <ColumnDefinition Width="250" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="50" />
+                    <RowDefinition Height="50" />
+                    <RowDefinition Height="50" />
+                </Grid.RowDefinitions>
+
+                <StackPanel Width="500" Orientation="Horizontal" Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="2" >
+                    <Button ToolTip="Thêm" HorizontalAlignment="Left" Margin="200 0 0 0" Height="40" Width="40" Style="{StaticResource MaterialDesignFloatingActionButton}" materialDesign:ButtonProgressAssist.IsIndicatorVisible="True" materialDesign:ButtonProgressAssist.Value="-1" materialDesign:ButtonProgressAssist.IsIndeterminate="True" Content="{materialDesign:PackIcon Kind=Add}" Background="#2196f3" BorderBrush="#2196f3" />
+                    <Button ToolTip="Cập nhật" HorizontalAlignment="Center" Height="40" Width="40" Margin="15 0 0 0" Style="{StaticResource MaterialDesignFloatingActionButton}" materialDesign:ButtonProgressAssist.IsIndicatorVisible="True" materialDesign:ButtonProgressAssist.Value="-1" materialDesign:ButtonProgressAssist.IsIndeterminate="True" Content="{materialDesign:PackIcon Kind=Edit}" Background="#2196f3" BorderBrush="#2196f3" />
+                    <Button ToolTip="Xóa" HorizontalAlignment="Right" Margin="15 0 0 0" Height="40" Width="40" Style="{StaticResource MaterialDesignFloatingActionButton}" materialDesign:ButtonProgressAssist.IsIndicatorVisible="True" materialDesign:ButtonProgressAssist.Value="-1" materialDesign:ButtonProgressAssist.IsIndeterminate="True" Content="{materialDesign:PackIcon Kind=Delete}" Background="#2196f3" BorderBrush="#2196f3" />
+                </StackPanel>
+
+                <TextBox x:Name="txtTenYTe" Grid.Column="0" Height="30" Grid.Row="0" Width="190" HorizontalAlignment="Left" Margin="60 0 5 0" materialDesign:HintAssist.Hint="Tên Mặt Hàng Y Tế" materialDesign:TextFieldAssist.DecorationVisibility="Hidden" ></TextBox>
+                <materialDesign:PackIcon Margin="20 10 0 0" HorizontalAlignment="Left" VerticalAlignment="Center" Height="30" Width="30" Kind="MedicalBag" Grid.Column="0" Grid.Row="0" />
+
+                <TextBox x:Name="txtDonViTinh" Grid.Column="1" Height="30" Grid.Row="0" Width="190" HorizontalAlignment="Left" Margin="60 0 5 0" materialDesign:HintAssist.Hint="Đơn Vị Tính" materialDesign:TextFieldAssist.DecorationVisibility="Hidden" ></TextBox>
+                <materialDesign:PackIcon Margin="20 10 0 0" HorizontalAlignment="Left" VerticalAlignment="Center" Height="30" Width="30" Kind="Numbers" Grid.Column="1" Grid.Row="0" />
+
+                <TextBox x:Name="txtGia" Grid.Column="0" Grid.Row="1" Height="30"  Width="190" HorizontalAlignment="Left" Margin="60 0 5 0" materialDesign:HintAssist.Hint="Giá" materialDesign:TextFieldAssist.DecorationVisibility="Hidden" ></TextBox>
+                <materialDesign:PackIcon Grid.Column="0" Grid.Row="1" Margin="20 10 0 0" HorizontalAlignment="Left" VerticalAlignment="Center" Height="30" Width="30" Kind="Note" />
+
+                <TextBox x:Name="txtNoteYTe" Grid.Column="1" Grid.Row="1" Height="30"  Width="190" HorizontalAlignment="Left" Margin="60 0 5 0" materialDesign:HintAssist.Hint="Ghi Chú" materialDesign:TextFieldAssist.DecorationVisibility="Hidden" ></TextBox>
+                <materialDesign:PackIcon Grid.Column="1" Grid.Row="1" Margin="20 10 0 0" HorizontalAlignment="Left" VerticalAlignment="Center" Height="30" Width="30" Kind="Note" />
+
+            </Grid>
+        </StackPanel>
+        <!--#endregion-->
+
+        <!--#endregion-->
+
+        <!--#region KHUNG PHẢI -->
+
+        <!--#region THANH TÌM KIẾM-->
+        <materialDesign:ColorZone Grid.Column="1" Grid.Row="1" Width="515" Background="White" Padding="5" Height="60">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" >
+                <materialDesign:ColorZone Margin="0 10 10 0" Mode="Standard" CornerRadius="8" materialDesign:ShadowAssist.ShadowDepth="Depth1">
+                    <Grid >
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="250" />
+                        </Grid.ColumnDefinitions>
+                        <Button Style="{DynamicResource MaterialDesignToolButton}">
+                            <materialDesign:PackIcon Kind="Search" Opacity="50" />
+                        </Button>
+                        <TextBox Grid.Column="1" materialDesign:HintAssist.Hint="Nhập thông tin cần tìm kiếm" materialDesign:TextFieldAssist.DecorationVisibility="Hidden"
+                             BorderThickness="0" VerticalAlignment="Center" />
+                    </Grid>
+                </materialDesign:ColorZone>
+
+                <Button ToolTip="Tìm kiếm" Height="45" Width="45" Style="{StaticResource MaterialDesignFloatingActionButton}" materialDesign:ButtonProgressAssist.IsIndicatorVisible="True" materialDesign:ButtonProgressAssist.Value="-1" materialDesign:ButtonProgressAssist.IsIndeterminate="True" Content="{materialDesign:PackIcon Kind=Search}" Background="#2196f3" BorderBrush="#2196f3" />
+            </StackPanel>
+        </materialDesign:ColorZone>
+        <!--#endregion-->
+
+        <!--#region DATA GRID  -->
+        <Grid Grid.Row="2" Grid.Column="1" Height="210" Width="500">
+            <DataGrid x:Name="dtgDepartment" SelectedCellsChanged="GetValueFromSelectedRowChangedDepartment" AutoGenerateColumns="False" Background="#2196f3" CanUserAddRows="False" CanUserDeleteRows="False" IsReadOnly="True">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Số Thứ Tự" Width="100" Binding="{Binding Path=IDDepartment}" />
+                    <DataGridTextColumn Header="Tên Bộ Phận" Width="250" Binding="{Binding Path=DepartmentName}" />
+                    <DataGridTextColumn Header="Ghi Chú" Width="150" Binding="{Binding Path=Note}" />
+                </DataGrid.Columns>
+            </DataGrid>
+        </Grid>
+        <!--#endregion-->
+
+        <!--#region KHUNG DƯỚI -->
+        <StackPanel Grid.Column="1" Grid.Row="3" Margin="0 0 0 0">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="250" />
+                    <ColumnDefinition Width="250" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="60" />
+                    <RowDefinition Height="60" />
+                </Grid.RowDefinitions>
+
+                <TextBox x:Name="txtTenBoPhan" Grid.Column="0" Height="30" Grid.Row="0" Width="190" HorizontalAlignment="Left" Margin="60 0 5 0" materialDesign:HintAssist.Hint="Tên Bộ Phận" materialDesign:TextFieldAssist.DecorationVisibility="Hidden" ></TextBox>
+                <materialDesign:PackIcon Margin="20 10 0 0" HorizontalAlignment="Left" VerticalAlignment="Center" Height="30" Width="30" Kind="School" Grid.Column="0" Grid.Row="0" />
+
+                <TextBox x:Name="txtNoteBoPhan" Grid.Column="1" Grid.Row="0" Height="30"  Width="190" HorizontalAlignment="Left" Margin="60 0 5 0" materialDesign:HintAssist.Hint="Ghi Chú" materialDesign:TextFieldAssist.DecorationVisibility="Hidden" ></TextBox>
+                <materialDesign:PackIcon Grid.Column="1" Grid.Row="0" Margin="20 10 0 0" HorizontalAlignment="Left" VerticalAlignment="Center" Height="30" Width="30" Kind="Note" />
+
+                <StackPanel Width="500" Orientation="Horizontal" Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="2" >
+                    <Button ToolTip="Thêm" HorizontalAlignment="Left" Margin="200 0 0 0" Height="40" Width="40" Style="{StaticResource MaterialDesignFloatingActionButton}" materialDesign:ButtonProgressAssist.IsIndicatorVisible="True" materialDesign:ButtonProgressAssist.Value="-1" materialDesign:ButtonProgressAssist.IsIndeterminate="True" Content="{materialDesign:PackIcon Kind=Add}" Background="#2196f3" BorderBrush="#2196f3" />
+                    <Button ToolTip="Cập nhật" HorizontalAlignment="Center" Height="40" Width="40" Margin="15 0 0 0" Style="{StaticResource MaterialDesignFloatingActionButton}" materialDesign:ButtonProgressAssist.IsIndicatorVisible="True" materialDesign:ButtonProgressAssist.Value="-1" materialDesign:ButtonProgressAssist.IsIndeterminate="True" Content="{materialDesign:PackIcon Kind=Edit}" Background="#2196f3" BorderBrush="#2196f3" />
+                    <Button ToolTip="Xóa" HorizontalAlignment="Right" Margin="15 0 0 0" Height="40" Width="40" Style="{StaticResource MaterialDesignFloatingActionButton}" materialDesign:ButtonProgressAssist.IsIndicatorVisible="True" materialDesign:ButtonProgressAssist.Value="-1" materialDesign:ButtonProgressAssist.IsIndeterminate="True" Content="{materialDesign:PackIcon Kind=Delete}" Background="#2196f3" BorderBrush="#2196f3" />
+                </StackPanel>
+            </Grid>
+        </StackPanel>
+        <!--#endregion-->
+
+        <!--#endregion-->
+    </Grid>
+</Page>

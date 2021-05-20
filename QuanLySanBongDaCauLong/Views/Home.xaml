@@ -5,6 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
+        Loaded="Window_Loaded"
         Title="MainWindow" Height="550" Width="1050" WindowStartupLocation="CenterScreen" Background="Transparent" AllowsTransparency="True" WindowStyle="None" ResizeMode="NoResize">
 
     <Window.Resources>
@@ -40,7 +41,7 @@
                 <Button Margin="5 5 0 0" Background="OrangeRed" Height="20" Width="20" Style="{StaticResource MaterialDesignFloatingActionMiniLightButton}" ToolTip="Phóng to">
                     <materialDesign:PackIcon Background="OrangeRed" Kind="WindowMaximize" Height="14" Width="10" />
                 </Button>
-                <Button x:Name="btnThoat" Margin="5 5 0 0" Background="Red" Height="20" Width="20" Style="{StaticResource MaterialDesignFloatingActionMiniLightButton}" ToolTip="Thoát">
+                <Button x:Name="btnThoat" Click="btnThoat_Click" Margin="5 5 0 0" Background="Red" Height="20" Width="20" Style="{StaticResource MaterialDesignFloatingActionMiniLightButton}" ToolTip="Thoát">
                     <materialDesign:PackIcon Background="Red" Kind="WindowClose" Height="14" Width="10" />
                 </Button>
 
@@ -57,41 +58,49 @@
 
             <Grid  Grid.Row="3">
 
-                <Border Margin="0 10 0 0" CornerRadius="5" Height="60" Width="600" Opacity="0.5" Background="DarkGray">
+                <Border Margin="0 10 0 0" CornerRadius="5" Height="60" Width="750" Opacity="0.5" Background="DarkGray">
                 </Border>
 
-                <Button Click="Button_Click" Uid="0" BorderThickness="0" Margin="-525 15 0 5" Height="45" Width="45" Background="Transparent">
-                    <Image Stretch="Fill" Margin="-15 -6 -15 -5" Source="Images\soccer.png" Height="45" Width="45" />
+                <Button Click="Button_Click" Uid="0" BorderThickness="0" Margin="-675 15 0 5" Height="45" Width="45" Background="Transparent">
+                    <Image Stretch="Fill" Margin="-15 -6 -15 -5" Source="/Images/soccer.png" Height="45" Width="45" />
                 </Button>
 
-                <Button Click="Button_Click" Uid="1" BorderThickness="0" Margin="-375 15 0 5" Height="50" Width="50" Background="Transparent">
-                    <Image Stretch="Fill" Margin="-15 -6 -15 -5" Source="Images/caulong.png" Height="50" Width="50" />
+                <Button Click="Button_Click" Uid="1" BorderThickness="0" Margin="-525 15 0 5" Height="50" Width="50" Background="Transparent">
+                    <Image Stretch="Fill" Margin="-15 -6 -15 -5" Source="/Images/caulong.png" Height="50" Width="50" />
                 </Button>
 
-                <Button Click="Button_Click" Uid="2" BorderThickness="0" Margin="-225 15 0 5" Height="50" Width="50" Background="Transparent">
-                    <Image Stretch="Fill" Margin="-15 -6 -15 -5" Source="Images/food.png" Height="50" Width="50" />
+                <Button Click="Button_Click" Uid="2" BorderThickness="0" Margin="-375 15 0 5" Height="50" Width="50" Background="Transparent">
+                    <Image Stretch="Fill" Margin="-15 -6 -15 -5" Source="/Images/food.png" Height="50" Width="50" />
                 </Button>
 
-                <Button Click="Button_Click" Uid="3" BorderThickness="0" Margin="-75 15 0 5" Height="55" Width="55" Background="Transparent">
-                    <Image Stretch="Fill" Margin="-15 -6 -15 -5" Source="Images/yard.png" Height="55" Width="55" />
+                <Button Click="Button_Click" Uid="3" BorderThickness="0" Margin="-225 15 0 5" Height="55" Width="55" Background="Transparent">
+                    <Image Stretch="Fill" Margin="-15 -6 -15 -5" Source="/Images/yard.png" Height="55" Width="55" />
                 </Button>
 
-                <Button Click="Button_Click" Uid="4" BorderThickness="0" Margin="75 15 0 5" Height="55" Width="55" Background="Transparent">
-                    <Image Stretch="Fill" Margin="-15 -6 -15 -5" Source="Images/tool.png" Height="55" Width="55" />
+                <Button Click="Button_Click" Uid="4" BorderThickness="0" Margin="-75 15 0 5" Height="55" Width="55" Background="Transparent">
+                    <Image Stretch="Fill" Margin="-15 -6 -15 -5" Source="/Images/tool.png" Height="55" Width="55" />
                 </Button>
 
-                <Button Click="Button_Click" Uid="5" BorderThickness="0" Margin="225 15 0 5" Height="55" Width="55" Background="Transparent">
-                    <Image Stretch="Fill" Margin="-15 -6 -15 -5" Source="Images/yte.png" Height="45" Width="45" />
+                <Button Click="Button_Click" Uid="5" BorderThickness="0" Margin="75 15 0 5" Height="55" Width="55" Background="Transparent">
+                    <Image Stretch="Fill" Margin="-15 -6 -15 -5" Source="/Images/yte.png" Height="45" Width="45" />
                 </Button>
 
-                <Button Click="Button_Click" Uid="6" BorderThickness="0" Margin="375 15 0 5" Height="50" Width="50" Background="Transparent">
-                    <Image Stretch="Fill" Margin="-15 -6 -15 -5" Source="Images/account.png" Height="50" Width="50" />
+                <Button Click="Button_Click" Uid="6" BorderThickness="0" Margin="225 15 0 5" Height="45" Width="45" Background="Transparent">
+                    <Image Stretch="Fill" Margin="-15 -6 -15 -5" Source="/Images/statistical.png" Height="45" Width="45" />
                 </Button>
 
-                <Button Click="Button_Click" Uid="7" BorderThickness="0" Margin="525 15 0 5" Height="50" Width="50" Background="Transparent">
-                    <Image Stretch="Fill" Margin="-15 -6 -15 -5" Source="Images/Setting.png" Height="50" Width="50" />
+                <Button Click="Button_Click" Uid="7" BorderThickness="0" Margin="375 15 0 5" Height="60" Width="60" Background="Transparent">
+                    <Image Stretch="Fill" Margin="-15 -8 -15 0" Source="/Images/staff.png" Height="60" Width="60" />
                 </Button>
 
+                <Button Click="Button_Click" Uid="8" BorderThickness="0" Margin="525 15 0 5" Height="50" Width="50" Background="Transparent">
+                    <Image Stretch="Fill" Margin="-15 -6 -15 -5" Source="/Images/account.png" Height="50" Width="50" RenderTransformOrigin="0.5,0.504" />
+                </Button>
+
+                <Button Click="Button_Click" Uid="9" BorderThickness="0" Margin="675 15 0 5" Height="50" Width="50" Background="Transparent">
+                    <Image Stretch="Fill" Margin="-15 -6 -15 -5" Source="/Images/Setting.png" Height="50" Width="50" />
+                </Button>
+                
                 <Border Margin="0 100 0 0" x:Name="Cursor" Background="Red" Width="15" Height="15" CornerRadius="15">
                 </Border>
                 
